@@ -1,9 +1,10 @@
-'use client'; // This marks the file as a client-side component
+'use client';
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
+
 
 const videos = [
   {
@@ -19,7 +20,7 @@ const videos = [
   {
     title: "samsung",
     thumbnail: "/thumbnails/samsung.png",
-    url: "https://www.facebook.com/watch/?v=1640209502787979",
+    url: "https://youtu.be/iKs9r8oeMgM?si=V14FyjcSSYFE-EiV",
   },
   {
     title: "ocado",
@@ -27,15 +28,16 @@ const videos = [
     url: "https://youtu.be/DwKMuUtCJTE?si=yp_tK3836540XzHF",
   },
   {
-    title: "cadbury",
-    thumbnail: "/thumbnails/cadburys.png",
-    url: "https://youtu.be/EeOfDlW5Yw4?si=s6qv4Bzed2rDLuPu",
-  },
-  {
     title: "danone",
     thumbnail: "/thumbnails/danone.png",
-    url: "https://www.youtube.com/watch?v=oReBAO7ut04&t=4s",
+    url: "https://youtu.be/oReBAO7ut04?si=StHPcO0RLu7f7Mpw",
   },
+  {
+    title: "cadbury",
+    thumbnail: "/thumbnails/cadbury.png",
+    url: "https://youtu.be/EeOfDlW5Yw4?si=s6qv4Bzed2rDLuPu",
+  },
+  
 ];
 
 export default function Home() {
@@ -57,10 +59,13 @@ export default function Home() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="fixed top-16 left-0 w-full bg-[#fff7e4] p-4 z-40 md:hidden">
-          <a href="mailto:noah@noahsacre.com?subject=hey%20what's%20up" className="block py-2">Contact</a>
-        </div>
-      )}
+  <div className="fixed top-16 left-0 w-full bg-[#fff7e4] p-4 z-40 md:hidden text-[#2a9c62] font-bold">
+    <a href="mailto:noah@noahsacre.com?subject=hey%20what's%20up" className="block py-2">contact</a>
+    <a href="https://www.instagram.com/speelburg/" target="_blank" rel="noopener noreferrer" className="block py-2">insta</a>
+    <a href="https://www.youtube.com/speelburg" target="_blank" rel="noopener noreferrer" className="block py-2">youtube</a>
+  </div>
+)}
+
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center pt-16 pb-20 px-4">
@@ -82,12 +87,12 @@ export default function Home() {
         </motion.p>
         <motion.a
           href="mailto:noah@noahsacre.com?subject=hey%20what's%20up"
-          className="text-blue-600 underline"
+          className="text-[#2a9c62] font-bold underline"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 1 }}
         >
-          contact
+          hire me!
         </motion.a>
       </section>
 
@@ -106,9 +111,11 @@ export default function Home() {
               <img
                 src={video.thumbnail}
                 alt={video.title}
-                className="w-full h-[180px] object-cover rounded-lg shadow-md"
+                className="w-full h-[180px] object-cover shadow-md"
               />
-              <p className="mt-2 text-sm text-center">{video.title}</p>
+              <p className="mt-2 text-sm text-center text-[#2a9c62] font-bold">
+                {video.title}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -118,7 +125,7 @@ export default function Home() {
       <AnimatePresence>
         {selectedVideo && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4"
+            className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -152,10 +159,24 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Footer */}
-      <footer id="contact" className="p-8 text-center text-sm text-gray-500">
+      <footer id="contact" className="p-8 text-center text-sm">
         <div className="flex justify-center space-x-4">
-          <a href="https://www.instagram.com/speelburg/" target="_blank" rel="noopener noreferrer" className="underline">insta</a>
-          <a href="https://www.youtube.com/speelburg" target="_blank" rel="noopener noreferrer" className="underline">youtube</a>
+          <a
+            href="https://www.instagram.com/speelburg/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline font-bold text-[#000000]"
+          >
+            insta
+          </a>
+          <a
+            href="https://www.youtube.com/speelburg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline font-bold text-[#000000]"
+          >
+            youtube
+          </a>
         </div>
       </footer>
     </main>
