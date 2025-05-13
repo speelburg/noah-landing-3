@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const videos = [
   {
-    title: "wilkinson",
+    title: "wilkinson sword",
     thumbnail: "/thumbnails/wilkinson.png",
     url: "https://youtu.be/K5Is0uYoVes?si=a6_3WU-FPOfbGuhw",
   },
@@ -106,7 +106,7 @@ export default function Home() {
 
   {/* Hamburger Menu Overlay — covers logo/header entirely */}
   {menuOpen && (
-  <div className="fixed top-0 left-0 w-full h-[320px] bg-[#fff7e4] z-50 flex flex-col items-center justify-center text-[#2a9c62] font-bold space-y-2">
+  <div className="fixed top-0 left-0 w-full h-[260px] bg-[#fff7e4] z-50 flex flex-col items-center justify-center text-[#2a9c62] font-bold space-y-2">
     <div className="absolute top-4 right-4">
       <Button
         variant="ghost"
@@ -145,30 +145,31 @@ export default function Home() {
 
 
       {/* Work Section */}
-      <section className="p-8 pt-[330px]" id="work">
+     <section className="p-8 pt-[330px]" id="work">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-6 mx-auto px-4 sm:px-8 lg:px-32"> {/* Responsive padding */}
+    {videos.map((video, index) => (
+      <motion.div
+        key={index}
+        className="cursor-pointer"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        onClick={() => setSelectedVideo(video)}
+      >
+        <img
+          src={video.thumbnail}
+          alt={video.title}
+          className="w-[90%] mx-auto h-[180px] object-cover shadow-md"
+        />
+        <p className="mt-2 text-sm text-center text-[#2a9c62] font-bold">
+          {video.title}
+        </p>
+      </motion.div>
+    ))}
+  </div>
+</section>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {videos.map((video, index) => (
-            <motion.div
-              key={index}
-              className="cursor-pointer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              onClick={() => setSelectedVideo(video)}
-            >
-              <img
-                src={video.thumbnail}
-                alt={video.title}
-                className="w-full h-[180px] object-cover shadow-md"
-              />
-              <p className="mt-2 text-sm text-center text-[#2a9c62] font-bold">
-                {video.title}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+
 
       {/* Modal */}
       <AnimatePresence>
