@@ -5,7 +5,6 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
 
-
 const videos = [
   {
     title: "wilkinson",
@@ -37,7 +36,6 @@ const videos = [
     thumbnail: "/thumbnails/cadbury.png",
     url: "https://youtu.be/EeOfDlW5Yw4?si=s6qv4Bzed2rDLuPu",
   },
-  
 ];
 
 export default function Home() {
@@ -45,60 +43,93 @@ export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   return (
-    <main className="min-h-screen bg-[#fff7e4] text-black font-sans relative">
-      {/* Mobile Header */}
-      <header className="fixed top-0 left-0 right-0 flex items-center justify-end p-4 z-50 bg-[#fff7e4] md:hidden">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <X /> : <Menu />}
-        </Button>
-      </header>
+   <main className="min-h-screen bg-[#fff7e4] text-black font-sans relative">
 
+  {/* Fixed Hamburger Button — sits always top right */}
+  {!menuOpen && (
+    <div className="fixed top-4 right-4 z-50">
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => setMenuOpen(true)}
+        className="hover:bg-transparent focus:outline-none focus:ring-0"
+      >
+        <Menu />
+      </Button>
+    </div>
+  )}
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-  <div className="fixed top-16 left-0 w-full bg-[#fff7e4] p-4 z-40 md:hidden text-[#2a9c62] font-bold">
-    <a href="mailto:noah@noahsacre.com?subject=hey%20what's%20up" className="block py-2">contact</a>
-    <a href="https://www.instagram.com/speelburg/" target="_blank" rel="noopener noreferrer" className="block py-2">insta</a>
-    <a href="https://www.youtube.com/speelburg" target="_blank" rel="noopener noreferrer" className="block py-2">youtube</a>
+  {/* Header with logo + text — fixed */}
+  <section className="fixed top-0 left-0 right-0 bg-[#fff7e4] text-center z-40 pt-20 pb-6 px-4">
+    <motion.img
+      src="/noahsacrelogo.png"
+      alt="Noah Sacré logo"
+      className="w-[300px] mb-3 sm:w-[250px] md:w-[300px] lg:w-[350px] mx-auto"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+    />
+    <motion.p
+      className="text-md md:text-lg mb-3"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.3, duration: 1 }}
+    >
+      artist ☯︎ composer ☯︎ director
+    </motion.p>
+    <motion.a
+      href="mailto:noah@noahsacre.com?subject=hey%20what's%20up"
+      className="text-[#2a9c62] font-bold underline"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.6, duration: 1 }}
+    >
+      hire me!
+    </motion.a>
+  </section>
+
+  {/* Hamburger Menu Overlay — covers logo/header entirely */}
+  {menuOpen && (
+  <div className="fixed top-0 left-0 w-full h-[420px] bg-[#fff7e4] z-50 flex flex-col items-center justify-center text-[#2a9c62] font-bold">
+    <div className="absolute top-4 right-4">
+     <Button
+  variant="ghost"
+  size="icon"
+  onClick={() => setMenuOpen(!menuOpen)}
+  className="hover:bg-transparent focus:outline-none focus:ring-0"
+>
+  {menuOpen ? <X className="text-black" /> : <Menu className="text-black" />}
+</Button>
+    </div>
+    <a
+      href="mailto:noah@noahsacre.com?subject=hey%20what's%20up"
+      className="block py-2 text-center"
+    >
+      contact
+    </a>
+    <a
+      href="https://www.instagram.com/speelburg/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block py-2 text-center"
+    >
+      insta
+    </a>
+    <a
+      href="https://www.youtube.com/speelburg"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block py-2 text-center"
+    >
+      youtube
+    </a>
   </div>
 )}
 
 
-      {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center pt-16 pb-20 px-4">
-<motion.img
-  src="/noahsacrelogo.png"
-  alt="Noah Sacré logo"
-  className="w-[300px] mb-4 sm:w-[250px] md:w-[300px] lg:w-[350px] mt-4 mx-auto" // Center and adjust margin
-  initial={{ opacity: 0, y: -20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1 }}
-/>
-        <motion.p
-          className="text-md md:text-lg mb-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 1 }}
-        >
-          artist ☯︎ composer ☯︎ director
-        </motion.p>
-        <motion.a
-          href="mailto:noah@noahsacre.com?subject=hey%20what's%20up"
-          className="text-[#2a9c62] font-bold underline"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 1 }}
-        >
-          hire me!
-        </motion.a>
-      </section>
-
       {/* Work Section */}
-      <section className="p-8" id="work">
+      <section className="p-8 pt-[420px]" id="work">
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {videos.map((video, index) => (
             <motion.div
