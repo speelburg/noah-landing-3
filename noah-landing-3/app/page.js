@@ -21,10 +21,20 @@ const videos = [
     thumbnail: "/thumbnails/samsung.png",
     url: "https://youtu.be/iKs9r8oeMgM?si=V14FyjcSSYFE-EiV",
   },
+    {
+    title: "john legend",
+    thumbnail: "/thumbnails/johnlegend1.png",
+    url: "https://youtu.be/jJN_VX-_bdc?si=KLGYJzfRChIxPJhW",
+  },
   {
     title: "ocado",
     thumbnail: "/thumbnails/ocado.png",
     url: "https://youtu.be/DwKMuUtCJTE?si=yp_tK3836540XzHF",
+  },
+    {
+    title: "the national",
+    thumbnail: "/thumbnails/thenational1.png",
+    url: "https://youtu.be/NYeX551dfiY?si=uHoM4_Mz5B1f-beE",
   },
   {
     title: "danone",
@@ -35,6 +45,11 @@ const videos = [
     title: "cadbury",
     thumbnail: "/thumbnails/cadbury.png",
     url: "https://youtu.be/EeOfDlW5Yw4?si=s6qv4Bzed2rDLuPu",
+  },
+  {
+    title: "john legend + kelly clarkson",
+    thumbnail: "/thumbnails/johnlegend2.png",
+    url: "https://youtu.be/DlMP7FGYJmk?si=HnQZnNu8v5BEsWVV",
   },
 ];
 
@@ -90,16 +105,16 @@ export default function Home() {
 
   {/* Hamburger Menu Overlay — covers logo/header entirely */}
   {menuOpen && (
-  <div className="fixed top-0 left-0 w-full h-[420px] bg-[#fff7e4] z-50 flex flex-col items-center justify-center text-[#2a9c62] font-bold">
+  <div className="fixed top-0 left-0 w-full h-[320px] bg-[#fff7e4] z-50 flex flex-col items-center justify-center text-[#2a9c62] font-bold space-y-2">
     <div className="absolute top-4 right-4">
-     <Button
-  variant="ghost"
-  size="icon"
-  onClick={() => setMenuOpen(!menuOpen)}
-  className="hover:bg-transparent focus:outline-none focus:ring-0"
->
-  {menuOpen ? <X className="text-black" /> : <Menu className="text-black" />}
-</Button>
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => setMenuOpen(!menuOpen)}
+        className="hover:bg-transparent focus:outline-none focus:ring-0"
+      >
+        {menuOpen ? <X className="text-black" /> : <Menu className="text-black" />}
+      </Button>
     </div>
     <a
       href="mailto:noah@noahsacre.com?subject=hey%20what's%20up"
@@ -127,8 +142,9 @@ export default function Home() {
 )}
 
 
+
       {/* Work Section */}
-      <section className="p-8 pt-[420px]" id="work">
+      <section className="p-8 pt-[330px]" id="work">
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {videos.map((video, index) => (
