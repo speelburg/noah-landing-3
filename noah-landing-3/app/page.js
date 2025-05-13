@@ -45,7 +45,7 @@ export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   return (
-    <main className="min-h-screen bg-[#ffd58c] text-black font-sans relative">
+    <main className="min-h-screen bg-[#ffcb8e] text-black font-sans relative">
       {/* Mobile Header */}
       <header className="fixed top-0 left-0 right-0 flex items-center justify-end p-4 z-50 bg-[#fff7e4] md:hidden">
         <Button
@@ -70,14 +70,14 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center pt-16 pb-20 px-4">
-     <motion.img
-          src="/noahsacrelogo.png"
-          alt="Noah Sacré logo"
-          className="w-[300px] mb-4"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        />
+   <motion.img
+  src="/noahsacrelogo.png"
+  alt="Noah Sacré logo"
+  className="w-[300px] mb-4 sm:w-[250px] md:w-[300px] lg:w-[350px]" // Adjust for mobile
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1 }}
+/>
         <motion.p
           className="text-md md:text-lg mb-6"
           initial={{ opacity: 0 }}
