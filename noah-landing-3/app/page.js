@@ -76,7 +76,7 @@ export default function Home() {
   )}
 
   {/* Header with logo + text — fixed */}
-  <section className="fixed top-0 left-0 right-0 bg-[#fff7e4] text-center z-40 pt-20 pb-6 px-4">
+  <section className="fixed top-0 left-0 right-0 bg-[#fff7e4] text-center z-40 pt-10 pb-6 px-4">
     <motion.img
       src="/noahsacrelogo.png"
       alt="Noah Sacré logo"
@@ -106,7 +106,7 @@ export default function Home() {
 
   {/* Hamburger Menu Overlay — covers logo/header entirely */}
   {menuOpen && (
-  <div className="fixed top-0 left-0 w-full h-[260px] bg-[#fff7e4] z-50 flex flex-col items-center justify-center text-[#2a9c62] font-bold space-y-2">
+  <div className="fixed top-0 left-0 w-full h-[240px] bg-[#fff7e4] z-50 flex flex-col items-center justify-center text-[#2a9c62] font-bold space-y-2">
     <div className="absolute top-4 right-4">
       <Button
         variant="ghost"
