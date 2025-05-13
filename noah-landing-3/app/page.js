@@ -45,17 +45,20 @@ export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   return (
-    <main className="min-h-screen bg-[#fff7e4] text-black font-sans relative">
-      {/* Mobile Header */}
-      <header className="fixed top-0 left-0 right-0 flex items-center justify-end p-4 z-50 bg-[#fff7e4] md:hidden">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <X /> : <Menu />}
-        </Button>
-      </header>
+<main className="min-h-screen bg-[#fff7e4] text-black font-sans relative pt-20">
+  {/* Mobile Header */}
+  <header className="fixed top-0 left-0 right-0 flex items-center justify-end p-4 z-50 bg-[#fff7e4] md:hidden">
+    <Button
+      variant="ghost"
+      size="icon"
+      onClick={() => setMenuOpen(!menuOpen)}
+    >
+      {menuOpen ? <X /> : <Menu />}
+    </Button>
+  </header>
+  {/* Rest of your content */}
+</main>
+
 
       {/* Mobile Menu */}
       {menuOpen && (
