@@ -69,14 +69,14 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center pt-16 pb-20 px-4">
-        <motion.img
-          src="/noahsacrelogo.png"
-          alt="Noah Sacré logo"
-          className="w-[300px] mb-4"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        />
+       <motion.img
+  src="/noahsacrelogo.png"
+  alt="Noah Sacré logo"
+  className="absolute top-0 left-1/2 transform -translate-x-1/2 mt-8 w-[250px] sm:w-[300px] md:w-[350px]"
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1 }}
+/>
         <motion.p
           className="text-md md:text-lg mb-6"
           initial={{ opacity: 0 }}
