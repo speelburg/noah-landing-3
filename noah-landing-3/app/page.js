@@ -58,7 +58,8 @@ export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   return (
-   <main className="min-h-screen bg-[#fff7e4] text-black font-sans relative">
+<main className="min-h-screen bg-[#fff7e4] text-black font-sans relative overflow-x-hidden">
+
 
   {/* Fixed Hamburger Button — sits always top right */}
   {!menuOpen && (
