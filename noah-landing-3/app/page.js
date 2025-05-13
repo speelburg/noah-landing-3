@@ -45,7 +45,7 @@ export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   return (
-    <main className="min-h-screen bg-[#fff7e4] text-black font-sans relative">
+    <main className="min-h-screen bg-[#ffd58c] text-black font-sans relative">
       {/* Mobile Header */}
       <header className="fixed top-0 left-0 right-0 flex items-center justify-end p-4 z-50 bg-[#fff7e4] md:hidden">
         <Button
