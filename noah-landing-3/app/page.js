@@ -60,7 +60,7 @@ export default function Home() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-  <div className="fixed top-16 left-0 w-full bg-[#fff7e4] p-4 z-40 md:hidden text-[#2a9c62] font-bold">
+  <div className="fixed top-16 left-0 w-full bg-[#ffcb8e] p-4 z-40 md:hidden text-[#2a9c62] font-bold">
     <a href="mailto:noah@noahsacre.com?subject=hey%20what's%20up" className="block py-2">contact</a>
     <a href="https://www.instagram.com/speelburg/" target="_blank" rel="noopener noreferrer" className="block py-2">insta</a>
     <a href="https://www.youtube.com/speelburg" target="_blank" rel="noopener noreferrer" className="block py-2">youtube</a>
@@ -70,10 +70,10 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center pt-16 pb-20 px-4">
-   <motion.img
+<motion.img
   src="/noahsacrelogo.png"
   alt="Noah Sacré logo"
-  className="w-[300px] mb-4 sm:w-[250px] md:w-[300px] lg:w-[350px]" // Adjust for mobile
+  className="w-[300px] mb-4 sm:w-[250px] md:w-[300px] lg:w-[350px] mt-4 mx-auto" // Center and adjust margin
   initial={{ opacity: 0, y: -20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 1 }}
