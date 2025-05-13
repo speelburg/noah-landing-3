@@ -45,7 +45,7 @@ export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   return (
-    <main className="min-h-screen bg-[#ffcb8e] text-black font-sans relative">
+    <main className="min-h-screen bg-[#fff7e4] text-black font-sans relative">
       {/* Mobile Header */}
       <header className="fixed top-0 left-0 right-0 flex items-center justify-end p-4 z-50 bg-[#fff7e4] md:hidden">
         <Button
@@ -60,7 +60,7 @@ export default function Home() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-  <div className="fixed top-16 left-0 w-full bg-[#ffcb8e] p-4 z-40 md:hidden text-[#2a9c62] font-bold">
+  <div className="fixed top-16 left-0 w-full bg-[#fff7e4] p-4 z-40 md:hidden text-[#2a9c62] font-bold">
     <a href="mailto:noah@noahsacre.com?subject=hey%20what's%20up" className="block py-2">contact</a>
     <a href="https://www.instagram.com/speelburg/" target="_blank" rel="noopener noreferrer" className="block py-2">insta</a>
     <a href="https://www.youtube.com/speelburg" target="_blank" rel="noopener noreferrer" className="block py-2">youtube</a>
