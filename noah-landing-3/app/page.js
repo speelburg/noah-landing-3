@@ -29,7 +29,7 @@ const videos = [
     {
     title: "animation reel",
     thumbnail: "/thumbnails/animationreel.png",
-    url: "https://youtu.be/DwKMuUtCJTE?si=yp_tK383640XzHF",
+    url: "https://youtu.be/EkFGu2qWFEY?si=69ShFUy4w22cS8Pc",
   },
   {
     title: "ocado",
