@@ -39,7 +39,7 @@ const videos = [
     {
     title: "ikea",
     thumbnail: "/thumbnails/ikea.png",
-    url: "https://www.youtube.com/shorts/__wl5g66-1E",
+    url: "https://youtube.com/shorts/__wl5g66-1E?si=s2V_CdZQzPUrTSB-",
   },
   {
     title: "danone",
