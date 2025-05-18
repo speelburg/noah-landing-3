@@ -36,6 +36,11 @@ const videos = [
     thumbnail: "/thumbnails/thenational1.png",
     url: "https://youtu.be/NYeX551dfiY?si=uHoM4_Mz5B1f-beE",
   },
+    {
+    title: "ikea",
+    thumbnail: "/thumbnails/ikea.png",
+    url: "https://www.youtube.com/shorts/__wl5g66-1E",
+  },
   {
     title: "danone",
     thumbnail: "/thumbnails/danone.png",
