@@ -172,41 +172,63 @@ export default function Home() {
       </section>
 
       {/* Modal */}
-      <AnimatePresence>
-        {selectedVideo && (
-          <motion.div
-            className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedVideo(null)}
-          >
-            <motion.div
-              className="bg-white p-2 rounded-lg overflow-hidden max-w-3xl w-full relative"
-              initial={{ scale: 0.9 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.9 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex justify-end">
-                <Button variant="ghost" size="icon" onClick={() => setSelectedVideo(null)}>
-                  <X />
-                </Button>
-              </div>
-              <div className="aspect-video">
-                <iframe
-                  src={selectedVideo.url.replace("watch?v=", "embed/").replace("youtu.be/", "www.youtube.com/embed/")}
-                  title={selectedVideo.title}
-                  frameBorder="0"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+<AnimatePresence>
+  {selectedVideo && (
+    <motion.div
+      className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={() => setSelectedVideo(null)}
+    >
+      <motion.div
+        className="bg-white p-2 rounded-lg overflow-hidden max-w-3xl w-full relative"
+        initial={{ scale: 0.9 }}
+        animate={{ scale: 1 }}
+        exit={{ scale: 0.9 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex justify-end">
+          <Button variant="ghost" size="icon" onClick={() => setSelectedVideo(null)}>
+            <X />
+          </Button>
+        </div>
+
+        <div className="aspect-video">
+          {(selectedVideo.url.includes("youtube.com") || selectedVideo.url.includes("youtu.be")) ? (
+            <iframe
+              src={selectedVideo.url
+                .replace("watch?v=", "embed/")
+                .replace("youtu.be/", "www.youtube.com/embed/")}
+              title={selectedVideo.title}
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          ) : (
+            <div className="flex flex-col items-center justify-center h-full p-4 text-center">
+              <img
+                src={selectedVideo.thumbnail}
+                alt={selectedVideo.title}
+                className="mb-4 w-full max-w-md object-cover rounded-md"
+              />
+              <a
+                href={selectedVideo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-[#2a9c62] text-white rounded-md font-bold"
+              >
+                Watch on external site
+              </a>
+            </div>
+          )}
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
 
       {/* Footer */}
       <footer id="contact" className="p-8 text-center text-sm">
