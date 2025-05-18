@@ -26,6 +26,11 @@ const videos = [
     thumbnail: "/thumbnails/johnlegend1.png",
     url: "https://youtu.be/jJN_VX-_bdc?si=KLGYJzfRChIxPJhW",
   },
+    {
+    title: "animation reel",
+    thumbnail: "/thumbnails/animationreel.png",
+    url: "https://youtu.be/DwKMuUtCJTE?si=yp_tK383640XzHF",
+  },
   {
     title: "ocado",
     thumbnail: "/thumbnails/ocado.png",
