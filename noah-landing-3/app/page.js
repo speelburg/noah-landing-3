@@ -61,6 +61,11 @@ const videos = [
     thumbnail: "/thumbnails/johnlegend2.png",
     url: "https://youtu.be/DlMP7FGYJmk?si=HnQZnNu8v5BEsWVV",
   },
+   {
+    title: "romantic dividends",
+    thumbnail: "/thumbnails/romanticdividends.png",
+    url: "https://www.youtube.com/shorts/iKUO-isnG_U",
+  },
 ];
 
 export default function Home() {
