@@ -10,61 +10,73 @@ const videos = [
     title: "wilkinson sword",
     thumbnail: "/thumbnails/wilkinson.png",
     url: "https://youtu.be/K5Is0uYoVes?si=a6_3WU-FPOfbGuhw",
+    description: "composer + producer",
   },
   {
     title: "invincible",
     thumbnail: "/thumbnails/invincible.png",
     url: "https://youtu.be/zySXmuDDt_I?si=NltSzpcfAGms3ftu&t=23",
+    description: "artist + writer + producer",
   },
   {
     title: "samsung",
     thumbnail: "/thumbnails/samsung.png",
     url: "https://youtu.be/iKs9r8oeMgM?si=V14FyjcSSYFE-EiV",
+    description: "artist + writer + producer",
   },
   {
     title: "john legend",
     thumbnail: "/thumbnails/johnlegend1.png",
     url: "https://youtu.be/jJN_VX-_bdc?si=KLGYJzfRChIxPJhW",
+    description: "director + animator",
   },
-    {
+  {
     title: "animation reel",
     thumbnail: "/thumbnails/animationreel.png",
-    url: "https://youtu.be/EkFGu2qWFEY?si=69ShFUy4w22cS8Pc",
+    url: "https://www.youtube.com/watch?v=EkFGu2qWFEY",
+    description: "director + animator",
   },
   {
     title: "ocado",
     thumbnail: "/thumbnails/ocado.png",
     url: "https://youtu.be/DwKMuUtCJTE?si=yp_tK383640XzHF",
+    description: "composer + writer + producer",
   },
   {
     title: "the national",
     thumbnail: "/thumbnails/thenational1.png",
     url: "https://youtu.be/NYeX551dfiY?si=uHoM4_Mz5B1f-beE",
+    description: "director + animator",
   },
-    {
+  {
     title: "ikea",
     thumbnail: "/thumbnails/ikea.png",
     url: "https://www.tiktok.com/@ikeauk/video/7502396170581445910",
+    description: "composer + producer",
   },
   {
     title: "danone",
     thumbnail: "/thumbnails/danone.png",
     url: "https://youtu.be/oReBAO7ut04?si=StHPcO0RLu7f7Mpw",
+    description: "composer + writer + producer",
   },
   {
     title: "cadbury",
     thumbnail: "/thumbnails/cadbury.png",
     url: "https://youtu.be/EeOfDlW5Yw4?si=s6qv4Bzed2rDLuPu",
+    description: "composer + producer",
   },
   {
     title: "john legend + kelly clarkson",
     thumbnail: "/thumbnails/johnlegend2.png",
     url: "https://youtu.be/DlMP7FGYJmk?si=HnQZnNu8v5BEsWVV",
+    description: "director + animator",
   },
-   {
+  {
     title: "romantic dividends",
     thumbnail: "/thumbnails/romanticdividends.png",
-    url: "https://www.youtube.com/shorts/iKUO-isnG_U",
+    url: "https://youtube.com/shorts/iKUO-isnG_U?si=LjYMaIlaj0uQnQ5i",
+    description: "director + animator",
   },
 ];
 
@@ -75,7 +87,6 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#fff7e4] text-black font-sans relative overflow-x-hidden">
 
-      {/* Fixed Hamburger Button — sits always top right */}
       {!menuOpen && (
         <div className="fixed top-4 right-4 z-50">
           <Button
@@ -89,7 +100,6 @@ export default function Home() {
         </div>
       )}
 
-      {/* Header with logo + text — fixed */}
       <section className="fixed top-0 left-0 right-0 bg-[#fff7e4] text-center z-40 pt-10 pb-6 px-4">
         <motion.img
           src="/noahsacrelogo.png"
@@ -118,7 +128,6 @@ export default function Home() {
         </motion.a>
       </section>
 
-      {/* Hamburger Menu Overlay — covers logo/header entirely */}
       {menuOpen && (
         <div className="fixed top-0 left-0 w-full h-[240px] bg-[#fff7e4] z-50 flex flex-col items-center justify-center text-[#2a9c62] font-bold space-y-2">
           <div className="absolute top-4 right-4">
@@ -128,7 +137,7 @@ export default function Home() {
               onClick={() => setMenuOpen(!menuOpen)}
               className="hover:bg-transparent focus:outline-none focus:ring-0"
             >
-              {menuOpen ? <X className="text-black" /> : <Menu className="text-black" />}
+              <X className="text-black" />
             </Button>
           </div>
           <a
@@ -156,9 +165,8 @@ export default function Home() {
         </div>
       )}
 
-      {/* Work Section */}
       <section className="p-8 pt-[330px]" id="work">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-6 mx-auto px-4 sm:px-8 lg:px-32"> {/* Responsive padding */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-6 mx-auto px-4 sm:px-8 lg:px-32">
           {videos.map((video, index) => (
             <motion.div
               key={index}
@@ -171,7 +179,7 @@ export default function Home() {
               <img
                 src={video.thumbnail}
                 alt={video.title}
-                className="w-[90%] mx-auto h-[180px] object-cover" 
+                className="w-[90%] mx-auto h-[180px] object-cover"
               />
               <p className="mt-2 text-sm text-center text-[#2a9c62] font-bold">
                 {video.title}
@@ -181,66 +189,69 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Modal */}
-<AnimatePresence>
-  {selectedVideo && (
-    <motion.div
-      className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 p-4"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      onClick={() => setSelectedVideo(null)}
-    >
-      <motion.div
-        className="bg-white p-2 rounded-lg overflow-hidden max-w-3xl w-full relative"
-        initial={{ scale: 0.9 }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 0.9 }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="flex justify-end">
-          <Button variant="ghost" size="icon" onClick={() => setSelectedVideo(null)}>
-            <X />
-          </Button>
-        </div>
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div
+            className="fixed inset-0 backdrop-blur-sm bg-black/10 transition-all duration-300 ease-in-out flex items-center justify-center z-50 p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedVideo(null)}
+          >
+            <motion.div
+              className="bg-[#fff7e4] p-2 rounded-lg overflow-hidden max-w-3xl w-full relative"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex justify-end">
+                <Button variant="ghost" size="icon" onClick={() => setSelectedVideo(null)}>
+                  <X />
+                </Button>
+              </div>
+              <div className="aspect-video mb-4">
+                {(() => {
+                  const { url } = selectedVideo;
+                  let embedUrl = "";
 
-        <div className="aspect-video">
-          {(selectedVideo.url.includes("youtube.com") || selectedVideo.url.includes("youtu.be")) ? (
-            <iframe
-              src={selectedVideo.url
-                .replace("watch?v=", "embed/")
-                .replace("youtu.be/", "www.youtube.com/embed/")}
-              title={selectedVideo.title}
-              frameBorder="0"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              className="w-full h-full"
-            />
-          ) : (
-            <div className="flex flex-col items-center justify-center h-full p-4 text-center">
-              <img
-                src={selectedVideo.thumbnail}
-                alt={selectedVideo.title}
-                className="mb-4 w-full max-w-md object-cover rounded-md"
-              />
-              <a
-                href={selectedVideo.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 bg-[#2a9c62] text-white rounded-md font-bold"
-              >
-                Watch on external site
-              </a>
-            </div>
-          )}
-        </div>
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
+                  if (url.includes("youtu.be")) {
+                    const id = url.split("youtu.be/")[1].split("?")[0];
+                    embedUrl = `https://www.youtube.com/embed/${id}`;
+                  } else if (url.includes("youtube.com/shorts")) {
+                    const id = url.split("shorts/")[1].split("?")[0];
+                    embedUrl = `https://www.youtube.com/embed/${id}`;
+                  } else if (url.includes("youtube.com/watch")) {
+                    const id = new URL(url).searchParams.get("v");
+                    embedUrl = `https://www.youtube.com/embed/${id}`;
+                  } else if (url.includes("tiktok.com")) {
+                    const id = url.split("/video/")[1].split("?")[0];
+                    embedUrl = `https://www.tiktok.com/embed/${id}`;
+                  }
 
+                  return (
+                    <iframe
+                      src={embedUrl}
+                      title={selectedVideo.title}
+                      frameBorder="0"
+                      allow="autoplay; encrypted-media"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  );
+                })()}
+              </div>
 
-      {/* Footer */}
+              {selectedVideo.description && (
+                <p className="text-center text-sm text-[#2a9c62] font-semibold mb-2">
+                  {selectedVideo.description}
+                </p>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <footer id="contact" className="p-8 text-center text-sm">
         <div className="flex justify-center space-x-4">
           <a
