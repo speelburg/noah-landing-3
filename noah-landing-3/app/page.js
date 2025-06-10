@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
+import Marquee from "react-fast-marquee";
+
 
 const videos = [
   {
@@ -87,8 +89,31 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#fff7e4] text-black font-sans relative overflow-x-hidden">
 
+  {/* MARQUEE goes here */}
+  <div className="fixed top-0 left-0 right-0 z-50">
+    <Marquee
+      gradient={false}
+      speed={40}
+      pauseOnHover={false}
+      loop={0}
+      className="bg-[#fff7e4] text-[#2a9c62] text-lg font-bold uppercase py-2"
+    >
+      {Array(3).fill([
+        "☺ ARTIST ☺︎ ",
+        "♡ COMPOSER ♡",
+        "☯︎ DIRECTOR ☯︎",
+        "☀︎ ANIMATOR ☀︎",
+      ]).flat().map((item, i) => (
+        <span key={i} className="mx-6 whitespace-nowrap">
+          {item}
+        </span>
+      ))}
+    </Marquee>
+  </div>
+
+
       {!menuOpen && (
-        <div className="fixed top-4 right-4 z-50">
+        <div className="fixed top-[45px] right-4 z-50">
           <Button
             variant="ghost"
             size="icon"
@@ -100,7 +125,7 @@ export default function Home() {
         </div>
       )}
 
-      <section className="fixed top-0 left-0 right-0 bg-[#fff7e4] text-center z-40 pt-10 pb-6 px-4">
+      <section className="fixed top-[20px] left-0 right-0 bg-[#fff7e4] text-center z-40 pt-10 pb-6 px-4">
         <motion.img
           src="/noahsacrelogo.png"
           alt="Noah Sacré logo"
@@ -129,7 +154,7 @@ export default function Home() {
       </section>
 
       {menuOpen && (
-        <div className="fixed top-0 left-0 w-full h-[240px] bg-[#fff7e4] z-50 flex flex-col items-center justify-center text-[#2a9c62] font-bold space-y-2">
+        <div className="fixed top-0 left-0 w-full h-[250px] bg-[#fff7e4] z-50 flex flex-col items-center justify-center text-[#2a9c62] font-bold space-y-2">
           <div className="absolute top-4 right-4">
             <Button
               variant="ghost"
