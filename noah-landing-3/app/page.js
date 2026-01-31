@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
 
+
 const videos = [
   {
     title: "wilkinson sword",
@@ -86,53 +87,30 @@ export default function Home() {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   return (
-    <main className="min-h-screen text-black font-sans relative overflow-x-hidden">
+    <main className="min-h-screen bg-[#fff7e4] text-black font-sans relative overflow-x-hidden">
 
-      {/* =======================
-          BACKGROUND VIDEO
-      ======================= */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="w-full h-full object-cover"
-        >
-          <source src="/noahsacrebackground1.webm" type="video/webm" />
-          <source src="/noahsacrebackground1.mp4" type="video/mp4" />
-        </video>
-      </div>
+  {/* ✅ MARQUEE goes here */}
+  <div className="fixed top-0 left-0 right-0 z-50">
+    <Marquee
+      gradient={false}
+      speed={40}
+      pauseOnHover={false}
+      loop={0}
+      className="bg-[#fff7e4] text-[#2a9c62] text-lg font-bold uppercase py-2"
+    >
+      {Array(3).fill([
+        "☺ ARTIST ☺︎ ",
+        "♡ COMPOSER ♡",
+        "☯︎ DIRECTOR ☯︎",
+        "☀︎ ANIMATOR ☀︎",
+      ]).flat().map((item, i) => (
+        <span key={i} className="mx-6 whitespace-nowrap">
+          {item}
+        </span>
+      ))}
+    </Marquee>
+  </div>
 
-      {/* Optional overlay for readability (tweak 20/30/40) */}
-      <div className="fixed inset-0 -z-10 bg-black/30" />
-
-
-      {/* MARQUEE */}
-      <div className="fixed top-0 left-0 right-0 z-50">
-        <Marquee
-          gradient={false}
-          speed={40}
-          pauseOnHover={false}
-          loop={0}
-          className="bg-[#fff7e4]/80 backdrop-blur-sm text-[#2a9c62] text-lg font-bold uppercase py-2"
-        >
-          {Array(3)
-            .fill([
-              "☺ ARTIST ☺︎ ",
-              "♡ COMPOSER ♡",
-              "☯︎ DIRECTOR ☯︎",
-              "☀︎ ANIMATOR ☀︎",
-            ])
-            .flat()
-            .map((item, i) => (
-              <span key={i} className="mx-6 whitespace-nowrap">
-                {item}
-              </span>
-            ))}
-        </Marquee>
-      </div>
 
       {!menuOpen && (
         <div className="fixed top-[45px] right-4 z-50">
@@ -147,8 +125,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* HEADER */}
-      <section className="fixed top-[20px] left-0 right-0 bg-[#fff7e4]/80 backdrop-blur-sm text-center z-40 pt-10 pb-6 px-4">
+      <section className="fixed top-[20px] left-0 right-0 bg-[#fff7e4] text-center z-40 pt-10 pb-6 px-4">
         <motion.img
           src="/noahsacrelogo.png"
           alt="Noah Sacré logo"
@@ -176,9 +153,8 @@ export default function Home() {
         </motion.a>
       </section>
 
-      {/* MENU */}
       {menuOpen && (
-        <div className="fixed top-0 left-0 w-full h-[250px] bg-[#fff7e4]/90 backdrop-blur-sm z-50 flex flex-col items-center justify-center text-[#2a9c62] font-bold space-y-2">
+        <div className="fixed top-0 left-0 w-full h-[250px] bg-[#fff7e4] z-50 flex flex-col items-center justify-center text-[#2a9c62] font-bold space-y-2">
           <div className="absolute top-4 right-4">
             <Button
               variant="ghost"
@@ -214,7 +190,6 @@ export default function Home() {
         </div>
       )}
 
-      {/* THUMBNAILS */}
       <section className="p-8 pt-[330px]" id="work">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-6 mx-auto px-4 sm:px-8 lg:px-32">
           {videos.map((video, index) => (
@@ -239,11 +214,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MODAL */}
       <AnimatePresence>
         {selectedVideo && (
           <motion.div
-            className="fixed inset-0 backdrop-blur-sm bg-black/20 transition-all duration-300 ease-in-out flex items-center justify-center z-50 p-4"
+            className="fixed inset-0 backdrop-blur-sm bg-black/10 transition-all duration-300 ease-in-out flex items-center justify-center z-50 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -303,7 +277,6 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* FOOTER */}
       <footer id="contact" className="p-8 text-center text-sm">
         <div className="flex justify-center space-x-4">
           <a
